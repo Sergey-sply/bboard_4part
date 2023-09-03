@@ -5,10 +5,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="499f555c-d5f1-4a87-9823-69f3afe7e965" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/main/middleware.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bboard.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/bboard.sqlite3" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/main/migrations/0002_rubric_subrubric_superrubric_rubric_super_rubric.py" beforeDir="false" afterPath="$PROJECT_DIR$/main/migrations/0002_rubric_subrubric_superrubric_rubric_super_rubric.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/main/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/main/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bboard/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/bboard/settings.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main/templates/layout/basic.html" beforeDir="false" afterPath="$PROJECT_DIR$/main/templates/layout/basic.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/main/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/main/views.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
