@@ -15,5 +15,6 @@
     <input type="hidden" name="next" value="{{ next }}">
     {% bootstrap_button 'Войти' %}
 </form>
+<p><a href="{% url 'main:reset_password' %}">Сбросить пароль</a></p>
 {% endif %}
 {% endblock %}

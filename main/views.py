@@ -3,7 +3,7 @@ from django.http import HttpResponse, Http404
 from django.template import TemplateDoesNotExist
 from django.template.loader import get_template
 from django.contrib.auth import logout
-from django.contrib.auth.views import LoginView, LogoutView, PasswordChangeView
+from django.contrib.auth.views import LoginView, LogoutView, PasswordChangeView, PasswordResetView, PasswordResetDoneView, PasswordResetConfirmView, PasswordResetCompleteView
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib.messages.views import SuccessMessageMixin
@@ -39,6 +39,7 @@ def profile(request):
     return render(request, 'main/profile.html')
 
 
+# activate profile via mail
 def user_activate(request, sign):
 
     try:
@@ -119,10 +120,31 @@ class ProfileDeleteView(SuccessMessageMixin, LoginRequiredMixin, DeleteView):
         return get_object_or_404(queryset, pk=self.user_id)
 
 
+# for reset password
 class PasswordEditView(SuccessMessageMixin, LoginRequiredMixin, PasswordChangeView):
     template_name = 'main/password_edit.html'
     success_url = reverse_lazy('main:profile')
     success_message = 'Пароль успешно изменен'
+
+
+class ResetPasswordView(SuccessMessageMixin, PasswordResetView):
+    template_name = 'main/password_reset.html'
+    email_template_name = 'main/password_reset_email.html'
+    success_url = reverse_lazy('main:password_reset_done')
+
+
+class ResetPasswordDoneView(PasswordResetDoneView):
+    template_name = 'main/password_reset_done.html'
+
+
+class ResetPasswordCompleteView(PasswordResetCompleteView):
+    template_name = 'main/password_reset_complete.html'
+
+
+class ResetPasswordConfirmView(PasswordResetConfirmView):
+    template_name = 'main/password_reset_confirm.html'
+    success_url = reverse_lazy('main:password_reset_complete')
+
 
 
 
