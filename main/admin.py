@@ -1,10 +1,9 @@
 from django.contrib import admin
 import datetime
 
-from .models import AdvUser
+from .models import AdvUser, SuperRubric, SubRubric
 from .utilities import send_activation_notification
-
-# Register your models here.
+from .forms import SubRubricForm
 
 
 @admin.action(description='Отправить письма с требованиями активации')
@@ -52,4 +51,20 @@ class AdvUserAdmin(admin.ModelAdmin):
     actions = (send_notifications,)
 
 
+class SubRubricInline(admin.TabularInline):
+    model = SubRubric
+
+
+class SuperRubricAdmin(admin.ModelAdmin):
+    exclude = ('super_rubric',)
+    inlines = (SubRubricInline,)
+
+
+class SubRubricAdmin(admin.ModelAdmin):
+    form = SubRubricForm
+
+
 admin.site.register(AdvUser, AdvUserAdmin)
+admin.site.register(SuperRubric, SuperRubricAdmin)
+admin.site.register(SubRubric, SubRubricAdmin)
+
