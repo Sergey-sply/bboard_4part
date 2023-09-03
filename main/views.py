@@ -120,13 +120,13 @@ class ProfileDeleteView(SuccessMessageMixin, LoginRequiredMixin, DeleteView):
         return get_object_or_404(queryset, pk=self.user_id)
 
 
-# for reset password
+# for edit password
 class PasswordEditView(SuccessMessageMixin, LoginRequiredMixin, PasswordChangeView):
     template_name = 'main/password_edit.html'
     success_url = reverse_lazy('main:profile')
     success_message = 'Пароль успешно изменен'
 
-
+# for reset password
 class ResetPasswordView(SuccessMessageMixin, PasswordResetView):
     template_name = 'main/password_reset.html'
     email_template_name = 'main/password_reset_email.html'
@@ -144,6 +144,12 @@ class ResetPasswordCompleteView(PasswordResetCompleteView):
 class ResetPasswordConfirmView(PasswordResetConfirmView):
     template_name = 'main/password_reset_confirm.html'
     success_url = reverse_lazy('main:password_reset_complete')
+
+
+# blank controller to display rubric-bbs links
+def rubric_bbs(request, pk):
+    pass
+
 
 
 
