@@ -44,7 +44,7 @@ class SubRubricManager(models.Manager):
 
 
 class SubRubric(Rubric):
-    objects = SuperRubricManager()
+    objects = SubRubricManager()
 
     def __str__(self):
         return '%s - %s' % (self.super_rubric.name, self.name)
