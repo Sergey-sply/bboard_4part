@@ -150,9 +150,7 @@ class ResetPasswordConfirmView(PasswordResetConfirmView):
 
 def rubric_bbs(request, pk):
     rubric = get_object_or_404(SubRubric, pk=pk)
-    """
-    Form for searching bbs by keyword.
-    """
+    """ Form for searching bbs by keyword. """
     bbs = Bb.objects.filter(is_active=True, rubric=pk)
     if 'keyword' in request.GET:
         keyword = request.GET['keyword']
