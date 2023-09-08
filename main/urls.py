@@ -1,6 +1,6 @@
 from django.urls import path
 
-from .views import (index, other_page, profile, user_activate, rubric_bbs, BBLoginView, BBLogoutView, ProfileEditView,
+from .views import (index, other_page, profile, user_activate, rubric_bbs, bb_detail, BBLoginView, BBLogoutView, ProfileEditView,
                     PasswordEditView, RegisterView, RegisterDoneView, ProfileDeleteView, ResetPasswordView,
                     ResetPasswordDoneView, ResetPasswordConfirmView, ResetPasswordCompleteView)
 
@@ -20,6 +20,7 @@ urlpatterns = [
     path('accounts/logout/', BBLogoutView.as_view(), name='logout'),
     path('accounts/profile/', profile, name='profile'),
     path('accounts/login/', BBLoginView.as_view(), name='login'),
+    path('<int:rubric_pk>/<int:pk>/', bb_detail, name='bb_detail'),
     path('<int:pk>/', rubric_bbs, name='rubric_bbs'),
     path('<str:page>/', other_page, name='other'),
     path('', index, name='index'),
