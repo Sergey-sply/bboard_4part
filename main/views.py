@@ -23,7 +23,10 @@ from .utilities import signer
 
 
 def index(request):
-    return render(request, 'main/index.html')
+    """Display of the first 10 bbs."""
+    bbs = Bb.objects.filter(is_active=True).select_related('rubric')[:10]   # get related bbs
+    context = {'bbs': bbs}
+    return render(request, 'main/index.html', context)
 
 
 def other_page(request, page):
@@ -149,8 +152,8 @@ class ResetPasswordConfirmView(PasswordResetConfirmView):
 
 
 def rubric_bbs(request, pk):
+    """Form for searching bbs by keyword."""
     rubric = get_object_or_404(SubRubric, pk=pk)
-    """ Form for searching bbs by keyword. """
     bbs = Bb.objects.filter(is_active=True, rubric=pk)
     if 'keyword' in request.GET:
         keyword = request.GET['keyword']
